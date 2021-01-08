@@ -8,8 +8,11 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import './Sidebar.css';
 
+interface ISidebar{
+    username:any
+}
 
-function Sidebar() {
+function Sidebar(props:ISidebar) {
     return (
         <div className="sidebar">
             <div className="sidebar__header">
@@ -17,7 +20,7 @@ function Sidebar() {
                     <h2>DNA Micro</h2>
                     <h3>
                         <FiberManualRecordIcon/>
-                        Danilo Alingasa
+                        {props.username}
                     </h3>
                 </div>
                 <CreateIcon/>

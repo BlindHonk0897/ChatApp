@@ -1,6 +1,13 @@
 .message{
     display: flex;
     align-items: center;
+    padding-left: 10px;
+}
+
+.messageRight{
+    display: flex;
+    align-items: center;
+    padding-left: 940px;
 }
 
 .message__info{

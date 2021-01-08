@@ -3,23 +3,45 @@ import './App.css';
 import {useMachine} from '@xstate/react'
 import clientMachine from './machine'
 import Chat from './components/chat/Chat';
+import Login from './components/login/Login'
 
 function App() {
 const [state,send] = useMachine(clientMachine);
 const [message,setMessage] = useState('');
 const {socket}:any = state.context;
 const messages:any = useState(state.context.messages);
+const [username,setUsername] = useState('');
 
 useEffect(()=>{
   //console.log(messages,'@@@@@@@@@@@@@@@@@@@@@');
-  console.log(state.context);
+  console.log(state.context,'APP.tsx');
   
-},[messages])
+},[])
+
+// const handleLogin = (username:any)=> (send:any)=>{
+//   console.log(username ,'@@@@@@@@@@@@@@@@@@@@')
+//   send({
+//           type:'SUBMIT',
+//           payload:username
+//   });
+
+
+  const handleLogin = (username:any)=>{
+    setUsername(username);
+    send('SUBMIT',{payload:username});
+}
 
   return (
     
     <div className="app">
-    {<Chat socket={socket} messages={messages}></Chat>}
+    {/* {<Chat socket={socket} messages={messages}></Chat>} */}
+    {state.matches('login')?
+    (<Login  handleLogin={handleLogin}></Login>):
+    <Chat socket={socket} 
+          username={username} 
+          messages={messages}
+          state={state}></Chat>}
+    {}
     </div>
   );
 }

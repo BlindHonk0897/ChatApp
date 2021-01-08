@@ -9,6 +9,14 @@ const config = {
             on:{
                 CONNECTED:{
                     actions:['assignSocket'],
+                    target:'login'
+                }
+            }
+        },
+        login:{
+            on:{
+                SUBMIT:{
+                    actions:['assignUsername'],
                     target:'listening'
                 }
             }

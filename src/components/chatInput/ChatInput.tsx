@@ -5,12 +5,15 @@ import io from 'socket.io-client';
 
 export interface IChatProps{
     socket:any
+    displayMessage:any
+    username:any
 }
 function ChatInput(props:IChatProps) {
 
     const  [input,setInput] = useState('');
     const sendMessage = ()=>{
-        props.socket.emit('message',input);
+        props.socket.emit('message',{msg:input,username:props.username});
+        props.displayMessage({msg:input,type:'messageRight',username:props.username});
     }
     return (
         <div className="chatInput">

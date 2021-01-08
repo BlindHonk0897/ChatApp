@@ -1,5 +1,6 @@
 import { env } from "process";
 import { assign } from "xstate";
+import {IMessage} from './interfaces'
 const io =  require('socket.io-client');
 
 const implemention = {
@@ -35,11 +36,22 @@ const implemention = {
         assignSocket:assign({
             socket:(context:any,event:any)=> event.payload
         }),
+        assignUsername:assign({
+            username:(context:any,event:any)=> {
+
+          console.log(event.payload ,'@@@@@@@@@@@@@@@@@@@@')
+                return event.payload
+            }
+        }),
         assignMessage:assign({
             messages:(context:any,event:any)=>{
-                const v = [...context.messages, event.payload];
-                //console.log('YOOOOOOOWWWW',v);
-                return[...context.messages, event.payload]
+                const m :IMessage ={
+                    msg:event.payload,
+                    type:'message'
+                }
+                const v = [...context.messages, m];
+                console.log('YOOOOOOOWWWW',v);
+                return[...context.messages, m]
             }
         }),
     }

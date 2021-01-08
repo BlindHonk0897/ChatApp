@@ -2,10 +2,13 @@ import { Machine } from "xstate";
 import config from "./config";
 import  implementation  from "./implementation";
 
+
 const context:any = {
     port:3000,
+    // url:'http://10.111.2.220:',
     url:'http://localhost:',
     socket:null,
+    username:'',
     messages:[]
 }
 
