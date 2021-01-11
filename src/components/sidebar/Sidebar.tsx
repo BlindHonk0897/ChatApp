@@ -26,13 +26,11 @@ function Sidebar(props:ISidebar) {
                 <CreateIcon/>
             </div>
             <SidebarOption Icon={InsertCommentIcon} title="Broadcasts Message"></SidebarOption>
-            <SidebarOption  title="Youtube"></SidebarOption>
-            <SidebarOption  title="Facebook"></SidebarOption>
-            <SidebarOption  title="Google"></SidebarOption>
             <hr/>
-            <SidebarOption Icon={ExpandLessIcon} title="show less"></SidebarOption>
-            <hr/>
-            <SidebarOption Icon={ExpandMoreIcon} title="channels"></SidebarOption>
+            <SidebarOption Icon={ExpandLessIcon} title="Online users"></SidebarOption>
+            <SidebarOption  title="Dan"></SidebarOption>
+            <SidebarOption  title="Tips"></SidebarOption>
+            <SidebarOption  title="Paul"></SidebarOption>
         </div>
     )
 }

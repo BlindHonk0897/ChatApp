@@ -6,7 +6,8 @@ import  implementation  from "./implementation";
 const context:any = {
     port:3000,
     // url:'http://10.111.2.220:',
-    url:'http://localhost:',
+    url:'10.100.100.50',
+    //url:'http://localhost:',
     socket:null,
     username:'',
     messages:[]

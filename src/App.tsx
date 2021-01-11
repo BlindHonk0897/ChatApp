@@ -29,14 +29,15 @@ useEffect(()=>{
   const handleLogin = (username:any)=>{
     setUsername(username);
     send('SUBMIT',{payload:username});
-}
+    socket.emit('introduceUser',{socket_id:socket.id,username:username});
+  }
 
   return (
     
     <div className="app">
     {/* {<Chat socket={socket} messages={messages}></Chat>} */}
     {state.matches('login')?
-    (<Login  handleLogin={handleLogin}></Login>):
+    (<Login  handleLogin={handleLogin} socket={socket}></Login>):
     <Chat socket={socket} 
           username={username} 
           messages={messages}

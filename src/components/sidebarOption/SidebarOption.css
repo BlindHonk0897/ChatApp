@@ -27,3 +27,9 @@
 .sidebarOption > h3{
     font-weight: 500;
 }
+
+.sidebarOption__hash > .MuiSvgIcon-root{
+    font-size: 14px;
+    margin-right: 2px;
+    color: green;
+ }

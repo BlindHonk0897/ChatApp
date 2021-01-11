@@ -37,7 +37,8 @@ const useStyles = makeStyles((theme) => ({
 
 
 interface ILogin {
-    handleLogin:any
+    handleLogin:any,
+    socket:any
   }
   
 
