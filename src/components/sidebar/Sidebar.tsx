@@ -9,7 +9,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import './Sidebar.css';
 
 interface ISidebar{
-    username:any
+    username:any,
+    state:any
 }
 
 function Sidebar(props:ISidebar) {
@@ -28,9 +29,40 @@ function Sidebar(props:ISidebar) {
             <SidebarOption Icon={InsertCommentIcon} title="Broadcasts Message"></SidebarOption>
             <hr/>
             <SidebarOption Icon={ExpandLessIcon} title="Online users"></SidebarOption>
-            <SidebarOption  title="Dan"></SidebarOption>
+            <div className="sidebar__users">
+            {/* <SidebarOption  title="Dan"></SidebarOption>
             <SidebarOption  title="Tips"></SidebarOption>
-            <SidebarOption  title="Paul"></SidebarOption>
+            <SidebarOption  title="qwer"></SidebarOption>
+            <SidebarOption  title="ddfd"></SidebarOption>
+            <SidebarOption  title="dvdf"></SidebarOption>
+            <SidebarOption  title="fbf"></SidebarOption>
+            <SidebarOption  title="xccx"></SidebarOption>
+            <SidebarOption  title="uiu"></SidebarOption>
+            <SidebarOption  title="ttjj"></SidebarOption>
+            <SidebarOption  title="wwe"></SidebarOption>
+            <SidebarOption  title="khj"></SidebarOption>
+            <SidebarOption  title="sfsd"></SidebarOption>
+            <SidebarOption  title="ouuj"></SidebarOption>
+            <SidebarOption  title="dsw"></SidebarOption>
+            <SidebarOption  title="r"></SidebarOption>
+            <SidebarOption  title="wqe"></SidebarOption>
+            <SidebarOption  title="pol"></SidebarOption>
+            <SidebarOption  title="hg"></SidebarOption>
+            <SidebarOption  title="xxs"></SidebarOption>
+            <SidebarOption  title="io"></SidebarOption>
+            <SidebarOption  title="tr"></SidebarOption>
+            <SidebarOption  title="uy"></SidebarOption>
+            <SidebarOption  title="f"></SidebarOption>
+            <SidebarOption  title="c"></SidebarOption> */}
+            {
+                props.state.context.users?.map((user:any)=>{
+                     return <SidebarOption key={user} title={user}></SidebarOption>
+                })
+            }
+            </div>
+            <div>
+
+            </div>
         </div>
     )
 }

@@ -14,14 +14,13 @@ export interface IChatProps{
 }
 
 function Chat(props:IChatProps) {
-  console.log(props.state.context.username,'CHAT')
   const username = props.state.context.username;
   return (
     <div>
       <Router>
         <Header></Header>
         <div className="chatApp__body">
-            <Sidebar username={props.username}></Sidebar>
+            <Sidebar username={props.username} state={props.state}></Sidebar>
             <Switch>
               <Route path="/roomId/:roomId">
                 <h1>hey</h1>

@@ -10,6 +10,7 @@ const [state,send] = useMachine(clientMachine);
 const [message,setMessage] = useState('');
 const {socket}:any = state.context;
 const messages:any = useState(state.context.messages);
+const users:any = useState(state.context.users);
 const [username,setUsername] = useState('');
 
 useEffect(()=>{
@@ -29,7 +30,9 @@ useEffect(()=>{
   const handleLogin = (username:any)=>{
     setUsername(username);
     send('SUBMIT',{payload:username});
+    send('GET_USERS');
     socket.emit('introduceUser',{socket_id:socket.id,username:username});
+ 
   }
 
   return (

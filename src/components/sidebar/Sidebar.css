@@ -46,3 +46,12 @@
   background-color: white;
   border-radius: 999px;
 }
+
+.sidebar__users{
+    overflow-y: scroll;
+    height:250px
+}
+
+.sidebar__users::-webkit-scrollbar{
+    display: none;
+}

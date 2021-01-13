@@ -26,7 +26,14 @@ const implemention = {
             socket.on('toAll',(msg:any)=>{
                 console.log(msg,'BROADCAST FROM SERVER');
                send({
-                   type:'ASSIGN',
+                   type:'ASSIGN_USERNAME',
+                   payload:msg
+               })
+            });
+            socket.on('USERS',(msg:any)=>{
+                console.log(msg,'BROADCAST FROM SERVER');
+               send({
+                   type:'ASSIGN_USERS',
                    payload:msg
                })
             })
@@ -38,8 +45,6 @@ const implemention = {
         }),
         assignUsername:assign({
             username:(context:any,event:any)=> {
-
-          console.log(event.payload ,'@@@@@@@@@@@@@@@@@@@@')
                 return event.payload
             }
         }),
@@ -50,10 +55,18 @@ const implemention = {
                     type:'message'
                 }
                 const v = [...context.messages, m];
-                console.log('YOOOOOOOWWWW',v);
                 return[...context.messages, m]
             }
         }),
+        requestUsers:({socket}:any,_event:any)=>{
+            socket.emit('GET_USERS',`from ${socket.id}`);
+        },
+        assignUsers:assign({
+            users:(context:any,event:any)=>{
+                return event.payload
+            }
+        }),
+        
     }
 }
 

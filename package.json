@@ -47,7 +47,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://10.100.100.113:5000",
+  "proxy": "http://10.100.100.113:7777",
   "devDependencies": {
     "@types/react-router-dom": "^5.1.7"
   }

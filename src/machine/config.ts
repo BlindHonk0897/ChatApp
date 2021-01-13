@@ -27,8 +27,14 @@ const config = {
                 src:'listeningToServer'
             },
             on:{
-                ASSIGN:{
+                ASSIGN_USERNAME:{
                     actions:['assignMessage']
+                },
+                GET_USERS:{
+                    actions:['requestUsers']
+                },
+                ASSIGN_USERS:{
+                    actions:['assignUsers']
                 }
             }
         }

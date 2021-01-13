@@ -2,3 +2,7 @@ body{
   --chat-color:"#3f51b5";
   overflow: hidden;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
