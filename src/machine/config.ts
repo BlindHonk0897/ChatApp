@@ -2,13 +2,21 @@ const config = {
     initial:'initialize',
     states:{
         initialize:{
-            invoke:{
-                id:'connect-to-server',
-                src:'connectToServer'
-            },
+            invoke:[{
+                    id:'connect-to-server',
+                    src:'connectToServer'
+                },
+                {
+                    id:'connect-to-database',
+                    src:'connectToDatabase'
+                }
+            ],
             on:{
                 CONNECTED:{
                     actions:['assignSocket'],
+                    target:'login'
+                },
+                NOT_CONNECTED:{
                     target:'login'
                 }
             }
@@ -27,10 +35,13 @@ const config = {
                 src:'listeningToServer'
             },
             on:{
+                INTRODUCE_USER:{
+                    actions:['emitIntroduce']
+                },
                 ASSIGN_USERNAME:{
                     actions:['assignMessage']
                 },
-                GET_USERS:{
+                GET_ALL_USERS:{
                     actions:['requestUsers']
                 },
                 ASSIGN_USERS:{

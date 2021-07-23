@@ -9,8 +9,8 @@ function App() {
 const [state,send] = useMachine(clientMachine);
 const [message,setMessage] = useState('');
 const {socket}:any = state.context;
-const messages:any = useState(state.context.messages);
-const users:any = useState(state.context.users);
+const [messages,setMessages] = useState(state.context.messages);
+const [users,setUsers] = useState(state.context.users);
 const [username,setUsername] = useState('');
 
 useEffect(()=>{
@@ -31,8 +31,9 @@ useEffect(()=>{
     setUsername(username);
     send('SUBMIT',{payload:username});
     send('GET_USERS');
-    socket.emit('introduceUser',{socket_id:socket.id,username:username});
- 
+    send({type:'INTRODUCE_USER',payload:{socket_id:socket.id,username:username}})
+    send({type:'GET_ALL_USERS'})
+   
   }
 
   return (

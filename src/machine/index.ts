@@ -1,12 +1,10 @@
 import { Machine } from "xstate";
 import config from "./config";
-import  implementation  from "./implementation";
-
-
-const context:any = {
-    port:3000,
-    // url:'http://10.111.2.220:',
-    //url:'http://10.100.100.50:',
+import  options  from "./options";
+import {IContext} from "./types"
+import {Socket} from 'socket.io-client'
+const context:IContext = {
+    port:5000,
     url:'http://localhost:',
     socket:null,
     username:'',
@@ -14,49 +12,10 @@ const context:any = {
     users:[]
 }
 
-
-
 const  clientMachine = () => {
-    return Machine({...config, context}, implementation)
+    return Machine({...config, context}, options)
 }
 
-
-// const machine =  Machine({
-//   id:'',
-//   initial:'idle',
-//   context:{
-     
-//   },
-//   states:{
-//      idle:{
-//         on:{
-//             INITIAL:'login'
-//         }
-//      },
-//      login:{
-//         on:{
-//             TYPE:'typing'
-//         }
-//      },
-//      typing:{
-//          on:{
-//             SUBMIT:'submit'
-//          }
-//      },
-//      submit:{
- 
-//      }
-
-//   },
-
-// },{
-//     actions:{
-
-//     },
-//     services:{
-
-//     }
-// })
 export default clientMachine;
 
 
